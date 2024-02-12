@@ -1,9 +1,9 @@
 // Завдання 2
+const box = document.getElementById('box');
 
-const box = document.querySelector('#box');
-const boxAll = document.querySelector('#boxall')
+function moveBox(event) {
+  box.style.left = `${event.clientX}px`;
+  box.style.top = `${event.clientY}px`;
+};
 
-boxAll.addEventListener('mouse',  _.debounce((event) => {
- box.style.left = `${event.offsetX}px`;
- box.style.top = `${event.offsetY}px`;
-}, 100));
+document.addEventListener('mousemove', _.debounce(moveBox, 100))
